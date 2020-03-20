@@ -9,4 +9,5 @@ The following are the contents:
    -Pynq Demo (ipynb, .hwh, .bit, .tcl)
    - Final Report
    - Jupyter Notebooks - Artificial and Real Data 
+   - Generate Data
 
