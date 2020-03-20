@@ -8,7 +8,5 @@ The following are the contents:
   - Median Filter2 (Architecture 2 - Best Optimisation with Synthesis Results
    -Pynq Demo (ipynb, .hwh, .bit, .tcl)
    - Final Report
-Jupyter Notebooks 
- - Artificial and Real Data 
- - ipnyb (Pynq Demo)
+Jupyter Notebooks - Artificial and Real Data 
 
