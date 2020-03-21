@@ -1,0 +1,192 @@
+
+
+================================================================
+== Vivado HLS Report for 'hFilter'
+================================================================
+* Date:           Thu Mar 19 20:45:48 2020
+
+* Version:        2019.1 (Build 2552052 on Fri May 24 15:28:33 MDT 2019)
+* Project:        Median_Opt
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   8.00|     6.532|        1.00|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |   12|   12|    3|    3| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------+--------------+-----+-----+-----+-----+----------+
+        |                         |              |  Latency  |  Interval | Pipeline |
+        |         Instance        |    Module    | min | max | min | max |   Type   |
+        +-------------------------+--------------+-----+-----+-----+-----+----------+
+        |grp_runFilter_fu_111     |runFilter     |    8|    8|    1|    1| function |
+        |grp_updateWindow_fu_135  |updateWindow  |    2|    2|    1|    1| function |
+        +-------------------------+--------------+-----+-----+-----+-----+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  | URAM|
++-----------------+---------+-------+--------+-------+-----+
+|DSP              |        -|      -|       -|      -|    -|
+|Expression       |        -|      -|       0|     75|    -|
+|FIFO             |        -|      -|       -|      -|    -|
+|Instance         |        3|      -|    3184|   4261|    -|
+|Memory           |        -|      -|       -|      -|    -|
+|Multiplexer      |        -|      -|       -|     39|    -|
+|Register         |        -|      -|     632|      -|    -|
++-----------------+---------+-------+--------+-------+-----+
+|Total            |        3|      0|    3816|   4375|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Available        |      280|    220|  106400|  53200|    0|
++-----------------+---------+-------+--------+-------+-----+
+|Utilization (%)  |        1|      0|       3|      8|    0|
++-----------------+---------+-------+--------+-------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------+--------------+---------+-------+------+------+-----+
+    |         Instance        |    Module    | BRAM_18K| DSP48E|  FF  |  LUT | URAM|
+    +-------------------------+--------------+---------+-------+------+------+-----+
+    |grp_runFilter_fu_111     |runFilter     |        0|      0|  1896|  3033|    0|
+    |grp_updateWindow_fu_135  |updateWindow  |        3|      0|  1288|  1228|    0|
+    +-------------------------+--------------+---------+-------+------+------+-----+
+    |Total                    |              |        3|      0|  3184|  4261|    0|
+    +-------------------------+--------------+---------+-------+------+------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------+----------+-------+---+----+------------+------------+
+    |       Variable Name       | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------+----------+-------+---+----+------------+------------+
+    |add_ln253_fu_267_p2        |     +    |      0|  0|  39|          32|           1|
+    |ap_block_pp0_stage0_01001  |    and   |      0|  0|   2|           1|           1|
+    |select_ln250_fu_273_p3     |  select  |      0|  0|  32|           1|           1|
+    |ap_enable_pp0              |    xor   |      0|  0|   2|           1|           2|
+    +---------------------------+----------+-------+---+----+------------+------------+
+    |Total                      |          |      0|  0|  75|          35|           5|
+    +---------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                |  21|          4|    1|          4|
+    |ap_enable_reg_pp0_iter0  |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter4  |   9|          2|    1|          2|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  39|          8|    3|          8|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------------+----+----+-----+-----------+
+    |              Name             | FF | LUT| Bits| Const Bits|
+    +-------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                      |   3|   0|    3|          0|
+    |ap_enable_reg_pp0_iter0_reg    |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1        |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter2        |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter3        |   1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter4        |   1|   0|    1|          0|
+    |center_V_reg_471               |  16|   0|   16|          0|
+    |copy_window_1_V_0_0            |  16|   0|   16|          0|
+    |copy_window_1_V_0_0_1_reg_476  |  16|   0|   16|          0|
+    |copy_window_1_V_0_1            |  16|   0|   16|          0|
+    |copy_window_1_V_0_1_1_reg_481  |  16|   0|   16|          0|
+    |copy_window_1_V_0_2            |  16|   0|   16|          0|
+    |copy_window_1_V_0_2_1_reg_486  |  16|   0|   16|          0|
+    |copy_window_1_V_1_0            |  16|   0|   16|          0|
+    |copy_window_1_V_1_0_1_reg_491  |  16|   0|   16|          0|
+    |copy_window_1_V_1_1            |  16|   0|   16|          0|
+    |copy_window_1_V_1_1_1_reg_496  |  16|   0|   16|          0|
+    |copy_window_1_V_1_2            |  16|   0|   16|          0|
+    |copy_window_1_V_1_2_1_reg_501  |  16|   0|   16|          0|
+    |copy_window_1_V_2_0            |  16|   0|   16|          0|
+    |copy_window_1_V_2_0_1_reg_506  |  16|   0|   16|          0|
+    |copy_window_1_V_2_1            |  16|   0|   16|          0|
+    |copy_window_1_V_2_1_1_reg_511  |  16|   0|   16|          0|
+    |copy_window_1_V_2_2            |  16|   0|   16|          0|
+    |copy_window_1_V_2_2_1_reg_516  |  16|   0|   16|          0|
+    |copy_window_2_V_0_0            |  16|   0|   16|          0|
+    |copy_window_2_V_0_0_1_reg_521  |  16|   0|   16|          0|
+    |copy_window_2_V_0_1            |  16|   0|   16|          0|
+    |copy_window_2_V_0_1_1_reg_526  |  16|   0|   16|          0|
+    |copy_window_2_V_0_2            |  16|   0|   16|          0|
+    |copy_window_2_V_0_2_1_reg_531  |  16|   0|   16|          0|
+    |copy_window_2_V_1_0            |  16|   0|   16|          0|
+    |copy_window_2_V_1_0_1_reg_536  |  16|   0|   16|          0|
+    |copy_window_2_V_1_1            |  16|   0|   16|          0|
+    |copy_window_2_V_1_1_1_reg_541  |  16|   0|   16|          0|
+    |copy_window_2_V_1_2            |  16|   0|   16|          0|
+    |copy_window_2_V_1_2_1_reg_546  |  16|   0|   16|          0|
+    |copy_window_2_V_2_0            |  16|   0|   16|          0|
+    |copy_window_2_V_2_0_1_reg_551  |  16|   0|   16|          0|
+    |copy_window_2_V_2_1            |  16|   0|   16|          0|
+    |copy_window_2_V_2_1_1_reg_556  |  16|   0|   16|          0|
+    |copy_window_2_V_2_2            |  16|   0|   16|          0|
+    |copy_window_2_V_2_2_1_reg_561  |  16|   0|   16|          0|
+    |n                              |  32|   0|   32|          0|
+    +-------------------------------+----+----+-----+-----------+
+    |Total                          | 632|   0|  632|          0|
+    +-------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+-----------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
++---------------------------+-----+-----+------------+-----------------------+--------------+
+|ap_clk                     |  in |    1| ap_ctrl_hs |        hFilter        | return value |
+|ap_rst                     |  in |    1| ap_ctrl_hs |        hFilter        | return value |
+|ap_start                   |  in |    1| ap_ctrl_hs |        hFilter        | return value |
+|ap_done                    | out |    1| ap_ctrl_hs |        hFilter        | return value |
+|ap_idle                    | out |    1| ap_ctrl_hs |        hFilter        | return value |
+|ap_ready                   | out |    1| ap_ctrl_hs |        hFilter        | return value |
+|In_Pixel_data_v_V          |  in |   16|   ap_none  |   In_Pixel_data_v_V   |    scalar    |
+|In_Pixel_data_gray_V       |  in |   11|   ap_none  |  In_Pixel_data_gray_V |    scalar    |
+|In_Pixel_user_V            |  in |    1|   ap_none  |    In_Pixel_user_V    |    scalar    |
+|In_Pixel_last_V            |  in |    1|   ap_none  |    In_Pixel_last_V    |    scalar    |
+|Out_Image_data_v_V         | out |   16|   ap_vld   |   Out_Image_data_v_V  |    pointer   |
+|Out_Image_data_v_V_ap_vld  | out |    1|   ap_vld   |   Out_Image_data_v_V  |    pointer   |
+|Out_Image_data_gray_V      |  in |   11|   ap_none  | Out_Image_data_gray_V |    pointer   |
+|Out_Image_user_V           |  in |    1|   ap_none  |    Out_Image_user_V   |    pointer   |
+|Out_Image_last_V           |  in |    1|   ap_none  |    Out_Image_last_V   |    pointer   |
++---------------------------+-----+-----+------------+-----------------------+--------------+
+
