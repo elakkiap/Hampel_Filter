@@ -9,5 +9,5 @@ The following are the contents:
    -Pynq Demo (ipynb, .hwh, .bit, .tcl)
    - Final Report
    - Jupyter Notebooks - Artificial and Real Data 
-   (Synthesis Reports of all optimisations have been placed in one folder named Synth_Reports)
+   
 
